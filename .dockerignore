@@ -1,0 +1,11 @@
+.cargo/
+.vscode/
+deploy/
+migrations/
+scripts/
+target/
+tests/
+.dockerignore
+.env
+Dockerfile
+README.md

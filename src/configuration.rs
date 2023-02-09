@@ -63,7 +63,7 @@ pub fn get_configuration() -> Result<Settings, ConfigError> {
             configuration_directory.join("base.yaml"),
         ))
         .add_source(config::File::from(
-            configuration_directory.join(&environment_filename),
+            configuration_directory.join(environment_filename),
         ))
         // Add in settings from environment variables (with a prefix of APP and '__' as separator)
         // E.g. `APP_APPLICATION__PORT=5001 would set `Settings.application.port`
@@ -99,9 +99,8 @@ impl TryFrom<String> for Environment {
             "local" => Ok(Self::Local),
             "production" => Ok(Self::Production),
             other => Err(format!(
-                "{} is not a supported environment. \
-    Use either `local` or `production`.",
-                other
+                "{other} is not a supported environment. \
+    Use either `local` or `production`."
             )),
         }
     }
